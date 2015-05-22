@@ -4,20 +4,24 @@
        xmlns:android="http://schemas.android.com/apk/res/android"
        android:orientation="vertical"
        android:layout_width="match_parent"
-       android:layout_height="match_parent">
+       android:layout_height="match_parent"
+       android:descendantFocusability="blocksDescendants">
+
        <TextView android:id="@+id/label"
                  android:layout_width="fill_parent"
                  android:layout_height="wrap_content"
                  android:text="Available Elections"
                  android:textSize="25dip"
                  android:textStyle="bold"
-                 android:padding="10dip"
-                 android:textColor="#ffffff"/>
+                 android:textColor="#343434"
+                 android:padding="10dip"/>
+                 <!--android:textColor="#ffffff"/>-->
 
        <ListView
            android:id="@+id/listView2"
            android:layout_height="fill_parent"
-           android:layout_width="fill_parent">
+           android:layout_width="fill_parent"
+           android:listSelector="@drawable/listcolor">
            </ListView>
 
    </LinearLayout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AndroidVoterApp</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_election">ElectionActivity</string>
+    <string name="title_activity_voting">VotingActivity</string>
+    <string name="title_activity_vote_client">VoteClient</string>
+    <string name="title_activity_view_polls">ViewPolls</string>
+</resources>

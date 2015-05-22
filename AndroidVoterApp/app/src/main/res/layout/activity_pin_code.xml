@@ -18,11 +18,12 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
         android:inputType="numberPassword"
         android:ems="10"
         android:id="@+id/etPin"
-        android:layout_below="@+id/textView"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="73dp"/>
 
     <Button
         android:layout_width="wrap_content"

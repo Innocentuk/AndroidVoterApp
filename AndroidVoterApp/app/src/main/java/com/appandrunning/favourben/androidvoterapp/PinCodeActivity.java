@@ -8,18 +8,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.appandrunning.favourben.androidvoterapp.models.GetCallback;
-import com.appandrunning.favourben.androidvoterapp.models.ServerRequest;
-import com.appandrunning.favourben.androidvoterapp.models.Voter;
-import com.appandrunning.favourben.androidvoterapp.models.VoterStore;
-
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
 
 public class PinCodeActivity extends Activity implements View.OnClickListener{
 
     Button bLogin;
     EditText etPin;
     TextView txtV;
-    VoterStore voterStore;
+    //VoterStore voterStore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,10 +30,12 @@ public class PinCodeActivity extends Activity implements View.OnClickListener{
         findViewById();
 
         bLogin.setOnClickListener(this);//bLoginConnectOnClickListener);
-        voterStore = new VoterStore(this);
+       // voterStore = new VoterStore(this);
+
+        //new Thread(new ClientThread()).start();
     }
     public void findViewById(){
-        etPin = (EditText) findViewById(R.id.etPin);
+       etPin = (EditText) findViewById(R.id.etPin);
         bLogin = (Button) findViewById(R.id.blogin);
         txtV = (TextView) findViewById(R.id.txtV);
     }
@@ -51,34 +56,20 @@ public class PinCodeActivity extends Activity implements View.OnClickListener{
     // when button is click the method is notified
     @Override
     public void onClick(View v) {
-        txtV.setText("");
 
         switch (v.getId()){//gets the id of view which notifies the method
             case R.id.blogin:
-                String pinCode = etPin.getText().toString();
-                Voter voter = new Voter(null, -1);
-                authenticate(voter);
+                //String pinCode = etPin.getText().toString();
+                //Voter voter = new Voter(null, -1);
+                //authenticate(voter);
 
-                voterStore.clearPwd();
+                /*voterStore.clearPwd();
                 voterStore.storeData(voter);
                 voterStore.setVoterLoggedIn(true);
-                displayElections();
-               // startActivity(new Intent(this, ElectionActivity.class));
+                displayElections();*/
+                startActivity(new Intent(this, ElectionActivity.class));
                 break;
-
         }
     }
-    private void authenticate (Voter voter){
-        ServerRequest serverRequest = new ServerRequest();
-        serverRequest.fetchPwdInBacground(voter, new GetCallback){
 
-        }
-    }
-   /* View.OnClickListener bLoginConnectOnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View arg0) {
-            VoteClient client = new VoteClient(etPin.getText().toString());
-            client.execute();
-        }
-    };*/
 }
